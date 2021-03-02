@@ -1,10 +1,8 @@
 import '../App.css'
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import {RatesConsumer} from '../App'
-import {LabelConsumer} from '../App'
+import { useHistory, Link } from 'react-router-dom'
+import {RatesConsumer, LabelConsumer} from '../App'
 import { client } from '../utils/api-client'
-
 
 function RatesList() {
   const [rates] = React.useContext(RatesConsumer)
@@ -62,17 +60,23 @@ function RatesList() {
 
   function renderDataTable() {
     if (!rates.included) {
-      return
+      return (
+        <button>
+        <Link style={{color: "white"}} to="/">
+          Go back
+        </Link>
+      </button>
+      )
     }
     const filteredRates = rates.included.filter(data => data.type.includes('rates'))
     return filteredRates.map((included) => {
       return (
         <tr key={included.id} id={included.id} onClick={handleClick} >
-          <td>{included.attributes.amount_local}{included.attributes.currency_local}</td>
+          <td>${included.attributes.amount_local}{included.attributes.currency_local}</td>
           <td>{included.attributes.provider}</td>
           <td>{included.attributes.service_level_name}</td>
           <td>{included.attributes.days}</td>
-          <td>{included.attributes.total_pricing}{included.attributes.currency_local}</td>
+          <td>${included.attributes.total_pricing}{included.attributes.currency_local}</td>
         </tr>
       )
     })

@@ -26,7 +26,6 @@ function ShipmentsList() {
 
   let history = useHistory();
 
-
   function handleSubmit(event) {
     event.preventDefault()
     setQueried(true)
@@ -106,19 +105,19 @@ function ShipmentsList() {
           <Card.Description className="form-box" >
             <Form onSubmit={handleSubmit} > 
               <Form.Field>
-                <label>Origin Zip Code</label>
+                <label>Origin zip code:</label>
                 <input id='zipFrom' />
               </Form.Field>
               <Form.Field>
-                <label>Destination Zip Code</label>
+                <label>Destination zip code:</label>
                 <input id='zipTo' />
               </Form.Field>
               <Form.Field>
-                <label>Package Weight</label>
+                <label>Package weight in kilos:</label>
                 <input id='parcels' />
               </Form.Field>
               <Form.Field>
-                <label>Package contents</label>
+                <label>Package contents:</label>
                 <input id='contents' />
               </Form.Field>
               <Button className="button" type='submit' disabled={isLoading} >

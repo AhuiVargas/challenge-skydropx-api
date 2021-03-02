@@ -16,7 +16,7 @@ function LabelView() {
           </div>
           <button>
             <Link style={{color: "white"}} to="/rates">
-              Volver a opciones
+              See more options
             </Link>
           </button>
         </div>
@@ -25,7 +25,7 @@ function LabelView() {
 
     return (
       <div>
-        <a href={label.data.attributes.label_url} download><strong>Descarga tu guía de envío</strong></a><br/>
+        <a href={label.data.attributes.label_url} download><strong>Download your shipping guide</strong></a><br/>
         <hr></hr>
         <strong>Tracking number:</strong>
         <p>{label.data.attributes.tracking_number}</p>
@@ -33,13 +33,9 @@ function LabelView() {
         <p>{label.data.attributes.tracking_url_provider}</p>
         <strong>Tracking ID:</strong>
         <p>{label.data.attributes.rate_id}</p>
-        {/* <object data={label.data.attributes.label_url}
-                type="application/pdf"
-                style={{width: '100%', height: '60%'}}
-        >Guía</object> */}
         <button>
           <Link to="/">
-            Crea otro envío
+            Make a new shipment
           </Link>
         </button>
       </div>
