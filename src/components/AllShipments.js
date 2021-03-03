@@ -8,7 +8,6 @@ function AllShipments() {
   const [error, setError] = React.useState(null)
   const isError = status === 'error'
 
-
   React.useEffect(() => {
     if (shipments) {
       return
